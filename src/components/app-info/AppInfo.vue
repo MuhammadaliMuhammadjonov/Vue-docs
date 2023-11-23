@@ -1,7 +1,7 @@
 <template >
     <div class="container">
-        <h1>Barcha kinolar soni: {{ AllMovies }}</h1>
-        <h1>Sevimli filmlar: {{ LikeMovies }}</h1>
+        <h1>Barcha kinolar soni: {{ moviesNumber }}</h1>
+        <h1>Sevimli filmlar: {{ favoriteNumber }}</h1>
     </div>
 </template>
 
@@ -11,6 +11,18 @@ export default {
         return{
             AllMovies: 10,
             LikeMovies: 5
+        }
+    },
+
+    props:{
+        moviesNumber:{
+            type: Number,
+            required: true
+        },
+
+        favoriteNumber:{
+            type: Number,
+            required: true
         }
     }
 }

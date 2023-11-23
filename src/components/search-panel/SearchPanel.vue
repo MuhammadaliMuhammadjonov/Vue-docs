@@ -1,8 +1,27 @@
 <template >
-    <input type="text" class="form-control p-3 border-black" placeholder="Kinolarni qidirish">  
+    <Input type="text" placeholder="Kinolarni qidirish" @input="searchMovies" /> 
 </template>
 <script>
 export default {
+
+    data(){
+        return{
+            searchMovie:this.movies
+        }
+    },
+
+    props:{
+        movies:{
+            type: Array,
+            required: false
+        }
+    },
+
+    methods:{
+        searchMovies(e){
+            this.$emit('searchMovies', e.target.value.toLowerCase())
+        }
+    }
     
 }
 </script>

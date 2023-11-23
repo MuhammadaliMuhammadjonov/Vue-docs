@@ -1,9 +1,11 @@
 <template >
     <div class="container">
         <ul>
-            <ListItems />
-            <ListItems />
-            <ListItems />
+            <ListItems v-for="movie in movies" :movie = 'movie' 
+            @onFavoriteMovie =" $emit('onFavoriteMovie', $event)" 
+            @onLike = "$emit('onlikes', $event)"
+            @onDelete = "$emit('onDelete', $event)"
+            />
         </ul>
     </div>
 </template>
@@ -14,7 +16,23 @@
     export default {
         components:{
             ListItems,
-        }
+        },
+
+        props:{
+            movies:{
+                type: Array,
+                required: false
+            }
+        },
+       
+
+        data(){
+            return{
+               
+            }
+        },
+        
+      
         
     }
 </script>
